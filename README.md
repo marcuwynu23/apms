@@ -92,6 +92,8 @@ The system automatically creates default user accounts on first database connect
 
 ### Asset Management Workflow
 
+This diagram illustrates the complete lifecycle of assets in the APMS system, from initial creation to ongoing management. Assets begin with detailed registration including photos and documentation, then become available for assignment or maintenance scheduling. The system supports flexible assignment types (users, departments, or external entities) with comprehensive status tracking and automatic inventory management upon return.
+
 ```mermaid
 graph TD
     A[Create Asset] --> B[Set Asset Details]
@@ -124,6 +126,8 @@ graph TD
 
 ### User Authentication & Access Control
 
+This diagram shows the security framework of the APMS system, demonstrating how users authenticate and gain role-based access to different system features. The system implements three distinct user roles with varying permission levels: Admins have full system access, Staff can manage assets with limitations, and Auditors have read-only access for compliance and reporting purposes.
+
 ```mermaid
 graph TD
     A[User Login] --> B[Validate Credentials]
@@ -151,6 +155,8 @@ graph TD
 ```
 
 ### Assignment Process Flow
+
+This diagram details the asset assignment workflow, showing how assets are allocated to users, departments, or external parties. The process includes comprehensive documentation with condition assessments and photo evidence at both assignment and return stages. The system automatically manages inventory quantities and tracks assignment status with overdue monitoring and automated notifications.
 
 ```mermaid
 graph TD
@@ -180,6 +186,8 @@ graph TD
 ```
 
 ### Maintenance Workflow
+
+This diagram outlines the maintenance management process, supporting four types of maintenance activities: repairs, routine maintenance, damage assessment, and inspections. The workflow includes technician assignment, status progression tracking, cost recording, and scheduling of future maintenance activities. All maintenance activities are documented with photos and linked to asset condition updates.
 
 ```mermaid
 graph TD
@@ -286,7 +294,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Support
 
 For issues and questions, please open an issue in the repository.
-
----
-
-Built with ❤️ using Next.js and Tailwind CSS
