@@ -1,0 +1,49 @@
+
+
+services:
+  # MongoDB Database for Development
+  mongodb:
+    image: mongo:7.0
+    container_name: apms-mongodb-dev
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: apms
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_dev_data:/data/db
+    networks:
+      - apms-dev-network
+
+  # Next.js Development Server
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: apms-app-dev
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://admin:password123@mongodb:27017/apms?authSource=admin
+      - AUTH_SECRET=dev-secret-key-not-for-production
+      - NEXTAUTH_URL=http://localhost:3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    networks:
+      - apms-dev-network
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+
+volumes:
+  mongodb_dev_data:
+    driver: local
+
+networks:
+  apms-dev-network:
+    driver: bridge
