@@ -37,8 +37,11 @@ A production-ready, full-stack asset and property management system built with N
 
 - Node.js 18+ and npm
 - MongoDB instance (local or Atlas)
+- Docker and Docker Compose (for containerized deployment)
 
 ### Installation
+
+#### Option 1: Local Development
 
 1. **Clone the repository**
 
@@ -75,6 +78,39 @@ A production-ready, full-stack asset and property management system built with N
 5. **Open your browser**
 
    Navigate to [http://localhost:3000](http://localhost:3000)
+
+#### Option 2: Docker Deployment
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd apms
+   ```
+
+2. **Run with Docker Compose**
+
+   For production:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+   For development:
+
+   ```bash
+   docker-compose -f docker-compose.dev.yml up -d
+   ```
+
+3. **Open your browser**
+
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+4. **Stop the containers**
+
+   ```bash
+   docker-compose down
+   ```
 
 ## Default User Accounts
 
